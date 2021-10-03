@@ -14,6 +14,42 @@
     <title>Weather Tracker</title>
 </head>
 <body>
-    <h1 class="bg-dark text-center text-white p-2 mt-4">Weather Tracker Dashboard</h1>
+    <header class="bg-dark">
+        <h1 class="bg-dark text-center text-white p-2">Weather Tracker Dashboard</h1>
+        <div class="box  p-2">
+            <div class="formDiv bg-dark p-2">
+                <form id="" class="">
+                    <button type="submit" id="search" class="">Search</button>
+                    <input class="w-full outline-none bg-gray-200" type="text" id="searchText" placeholder="Enter city to search..." />
+                </form>
+            </div>
+        </div>
+    </header>
+
+<main>
+    <div class="flex bg-dark text-white">
+
+<!-- Recent Search area -->
+        <div id="recentSearches" class="flex flex-col flex-wrap p-4 bg-gray-400">
+            <h2 class="w-full text-center">Recent Searches</h2>
+            <form id="recentSearchesForm">
+                <div id="recentFlex" class="flex flex-col w-full"></div>
+            </form>
+        </div>
+<!-- Current weather area -->
+        <div class="flex justify-center w-full">
+            <h2 class="currentWeather">Current Weather: </h2>
+        </div>
+        <div id="card_0" data-day="0" class="weather_cards flex bg-cadetblue m-3"></div>
+        <div id="card_1" data-day="1" class="weather_cards flex bg-cadetblue m-3"></div>
+        <div id="card_2" data-day="2" class="weather_cards flex bg-cadetblue m-3"></div>
+        <div id="card_3" data-day="3" class="weather_cards flex bg-cadetblue m-3"></div>
+        <div id="card_4" data-day="4" class="weather_cards flex bg-cadetblue m-3"></div>
+        <div id="card_5" data-day="5" class="weather_cards flex bg-cadetblue m-3"></div>
+    
+    </div>
+</main>
+    
+<script src="assets/script.js"></script>
 </body>
 </html>
