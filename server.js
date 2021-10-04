@@ -12,6 +12,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3023;
 
+
 const sess = {
     secret: 'Super duper secret',
     cookie: {},
@@ -20,9 +21,10 @@ const sess = {
     store: new SequelizeStore({
         db: sequelize
     })
-
+    
 };
 
+app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
