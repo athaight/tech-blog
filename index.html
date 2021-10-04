@@ -4,52 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-        crossorigin="anonymous"/>
-    <link rel="stylesheet" href="style.css" />
-    
-    <title>Weather Tracker</title>
+    <link rel="stylesheet" href="/public/css/cssreset.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/styles.css" />
+    <title>Andy's Tech Blog</title>
 </head>
 <body>
-    <header class="bg-dark">
-        <h1 class="bg-dark text-center text-white p-2">Weather Tracker Dashboard</h1>
-        <div class="box  p-2">
-            <div class="formDiv bg-dark p-2">
-                <form id="" class="">
-                    <button type="submit" id="search" class="">Search</button>
-                    <input class="w-full outline-none bg-gray-200" type="text" id="searchText" placeholder="Enter city to search..." />
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Andy's Tech Blog</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+              </div>
             </div>
-        </div>
+          </nav>
     </header>
-
-<main>
-    <div class="flex bg-dark text-white">
-
-<!-- Recent Search area -->
-        <div id="recentSearches" class="flex flex-col flex-wrap p-4 bg-gray-400">
-            <h2 class="w-full text-center">Recent Searches</h2>
-            <form id="recentSearchesForm">
-                <div id="recentFlex" class="flex flex-col w-full"></div>
-            </form>
-        </div>
-<!-- Current weather area -->
-        <div class="flex justify-center w-full">
-            <h2 class="currentWeather">Current Weather: </h2>
-        </div>
-        <div id="card_0" data-day="0" class="weather_cards flex bg-cadetblue m-3"></div>
-        <div id="card_1" data-day="1" class="weather_cards flex bg-cadetblue m-3"></div>
-        <div id="card_2" data-day="2" class="weather_cards flex bg-cadetblue m-3"></div>
-        <div id="card_3" data-day="3" class="weather_cards flex bg-cadetblue m-3"></div>
-        <div id="card_4" data-day="4" class="weather_cards flex bg-cadetblue m-3"></div>
-        <div id="card_5" data-day="5" class="weather_cards flex bg-cadetblue m-3"></div>
-    
-    </div>
-</main>
-    
-<script src="assets/script.js"></script>
+    {{{body}}}
 </body>
 </html>
