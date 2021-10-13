@@ -17,6 +17,17 @@
              `----'      `---`    '---'               `----'                               `---`      
  ```   
  
+### Description
+This is a simple blog site. It is configured using the Express.js API and Sequelize to interact with a MySQL database.
+
+### User Story
+```md
+AS A developer who writes about tech
+I WANT a CMS-style blog site
+SO THAT I can publish articles, blog posts, and my thoughts and opinions
+```
+
+ ### Acceptance Criteria
  ```md
 GIVEN a CMS-style blog site
 WHEN I visit the site for the first time
@@ -51,4 +62,9 @@ WHEN I click on the logout option in the navigation
 THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
+```
+
+### To install npm and dependenices:
+```
+npm i
 ```
