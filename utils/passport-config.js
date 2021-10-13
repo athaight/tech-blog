@@ -3,9 +3,10 @@ const passport = require("passport");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
-const signupUser = async (req, email, password, done) => {
+const registerUser = async (req, email, password, done) => {
   // find a user whose email is the same as the forms email
   // we are checking to see if the user trying to login already exists
+  console.log("EMAIL:", email)
   const user = await User.findOne({ where: { email } });
 
   // check to see if theres already a user with that email
@@ -46,7 +47,7 @@ const authenticateUser = async (email, password, done) => {
 
 passport.use(new LocalStrategy({ usernameField: "email" }, authenticateUser));
 passport.use(
-  "local-signup",
+  "local-register",
   new LocalStrategy(
     {
       // by default, local strategy uses username and password, we will override with email
@@ -54,7 +55,7 @@ passport.use(
       passwordField: "password",
       passReqToCallback: true, // allows us to pass back the entire request to the callback
     },
-    signupUser
+    registerUser
   )
 );
 passport.serializeUser((user, done) => done(null, user.id));

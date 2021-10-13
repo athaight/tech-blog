@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   res.render("register.handlebars");
 });
 
-router.post("/", passport.authenticate("local-signup"), function (req, res) {
+router.post("/", passport.authenticate("local-register"), function (req, res) {
   res.json(req.user);
 });
 
