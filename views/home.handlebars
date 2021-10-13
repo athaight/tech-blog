@@ -1,0 +1,23 @@
+{{#each posts}}
+  <div class="card card-color mb-4 col-12">
+
+    <div class="card-body">
+
+      <h5 class="card-title fs-4">{{this.title}}</h5>
+
+      <p class="card-text fs-5">{{this.post}}</p>
+      <p class="card-text fs-6 text-dark text-end">
+        Date:
+        {{format_date this.date_created}}
+        By:
+        {{this.user.username}}
+      </p>
+
+      <p class="card-text fs-6 text-dark text-end">
+        <button class="btn m-1 btn-danger">Delete</button>
+        <button class="btn m-1 btn-success">Update</button>
+      </p>
+      
+    </div>
+  </div>
+{{/each}}

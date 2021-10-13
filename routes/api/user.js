@@ -1,14 +1,16 @@
 const router = require("express").Router();
 const { User } = require("../../models")
 
-router.post('/', async (req, res) =>{
-    try{
+
+router.post('/', async (req, res) => {
+    try {
         const userData = await User.create(req.body);
 
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.status(200).json(userData.id);
+
+            res.status(200).json(userData);
         });
     } catch (err) {
         console.log(err)
@@ -19,14 +21,20 @@ router.post('/', async (req, res) =>{
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } });
+
         if (!userData) {
-            res.status(400).json({ message: 'Incorrect email/password combination' });
+            res
+                .status(400)
+                .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
 
-        const passwordValidation = await userData.passwordCheck(req.body.passwordCheck);
-        if (!passwordValidation) {
-            res.status(400).json({ message: 'Incorrect email/password combination' });
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
 
@@ -34,16 +42,19 @@ router.post('/login', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
 
-            res.json({ user: userData, message: 'Logged in' });
+            res.json({ user: userData, message: 'You are now logged in!' });
         });
 
-    } catch(err) {
+    } catch (err) {
         console.log(err)
-        res.status(400).json(err)
+        res.status(400).json(err);
     }
 });
 
 router.post('/logout', (req, res) => {
+
+
+
     if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(204).end();
