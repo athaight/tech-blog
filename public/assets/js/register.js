@@ -1,9 +1,9 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector("#name-signup").value.trim();
-  const email = document.querySelector("#email-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
+  const name = document.querySelector("#name-register").value.trim();
+  const email = document.querySelector("#email-register").value.trim();
+  const password = document.querySelector("#password-register").value.trim();
 
   if (name && password && email) {
     const response = await fetch("/register", {
@@ -20,5 +20,5 @@ const signupFormHandler = async (event) => {
 };
 
 document
-  .querySelector("#signup-form")
+  .querySelector("#register-form")
   .addEventListener("submit", signupFormHandler);
