@@ -1,22 +1,24 @@
 <div class="container">
-  <form id="formHandler">
-    <h2 class="text-light">Sign Up!</h2>
-    <div class="mb-3 col-md-4 text-light">
-      <label class="form-label">Username</label>
-      <input type="text" class="form-control" id="username-input" />
+    <form id="signup-form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name-signup" name="name" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email-signup" name="email" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password-signup" name="password" required />
+      </div>
+      <button class="regBtn waves-effect waves-light btn" type="submit">
+        Register
+      </button>
+    </form>
+    <form action="/login" method="get">
+      <button class="waves-effect waves-light btn">Login</button>
+    </form>
+  </div>
 
-    </div>
-    <div class="mb-3 col-md-4 text-light">
-      <label class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email-input" />
-
-    </div>
-    <div class="mb-3 col-md-4">
-      <label class="form-label text-light">Password</label>
-      <input type="password" class="form-control" id="pw-input" />
-    </div>
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-  </form>
-</div>
-
-<script src="/public/js/signup.js"></script>
+<script src="../public/js/register.js"></script>
