@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
+const { User } = require("../../models")
+
 router.get("/", (req, res) => {
   res.render("index.ejs", { name: req.user.name });
 });
@@ -27,6 +29,7 @@ router.post("/register", async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
+      user_id: req.body.user_id
     });
     console.log(userData);
     res.json("Success!");
