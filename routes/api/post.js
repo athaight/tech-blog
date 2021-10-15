@@ -27,12 +27,13 @@ router.post("/", async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => { // working fine
+    console.log('Hi flkdjsaf;ldkjsfas;dlkfj')
     try {
         const postData = await Post.destroy({
             where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
+                id: req.params.id
+                
             },
         });
 
@@ -49,6 +50,8 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
+    console.log("Hi flkjdsahfkljshadflkjhs")
+    console.log(req.body)
     try {
 
         const postData = await Post.update(
@@ -59,7 +62,7 @@ router.put("/:id", async (req, res) => {
             {
                 where: {
                     id: req.params.id,
-                    user_id: req.session.user_id,
+                    user_id: req.session.user_id, // questionable
                 }
             }
         )

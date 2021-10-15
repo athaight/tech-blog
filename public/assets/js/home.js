@@ -2,6 +2,7 @@ const commentHandler = document.querySelectorAll(".commentHandler")
 const deleteBtn = document.querySelectorAll(".delete-post")
 const formSubmit = document.querySelectorAll(".form-submit")
 
+
 async function addComment(event) {
     event.preventDefault();
 
@@ -49,13 +50,14 @@ async function deleteComment(event) {
 
 async function updateComment(event) {
     event.preventDefault()
-
+    
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
-
+        console.log(id)
+        
         const title = this.querySelector(".update-title").value.trim();
         const post = this.querySelector(".update-text").value.trim();
-
+        console.log(title)
 
         const response = await fetch(`/api/post/${id}`, {
             method: 'PUT',
