@@ -2,14 +2,6 @@ const router = require("express").Router();
 const passport = require("passport");
 const { User } = require("../../models")
 
-router.get("/", (req, res) => {
-  res.render("index.ejs", { name: req.user.name });
-});
-
-router.get("/login", (req, res) => {
-  res.render("login.ejs");
-});
-
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -25,11 +17,13 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
+    
     let userData = await User.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      user_id: req.body.user_id
+      // user_id: req.body.user_id
+      
     });
     console.log(userData);
     res.json("Success!");
