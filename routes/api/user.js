@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      // user_id: req.body.user_id
+      user_id: req.body.user_id
       
     });
     console.log(userData);
@@ -33,7 +33,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.delete("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   
   req.logOut();
   res.redirect("/login");

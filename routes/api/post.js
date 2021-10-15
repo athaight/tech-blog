@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => { // working fine
-    console.log('Hi flkdjsaf;ldkjsfas;dlkfj')
+    console.log('delete TEST')
     try {
         const postData = await Post.destroy({
             where: {

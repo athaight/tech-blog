@@ -1,5 +1,5 @@
 {{#each posts}}
-  <div class="card card-color mb-2 col-12">
+  <div class="card card-color mb-2 col-12 rounded-3">
     <div class="card-body">
       <h5 class="card-title fs-4">{{this.title}}</h5>
       <p class="card-text fs-5">{{this.post}}</p>
@@ -15,27 +15,21 @@
         class="btn position-absolute float-left btn-primary"
         type="button"
         data-bs-toggle="modal"
-        data-bs-target="#commentModal-{{this.id}}"
-      >Add Comment</button>
+        data-bs-target="#commentModal-{{this.id}}">Add Comment</button>
 
       <div class="card-text d-flex fs-6 text-dark justify-content-end">
         <form class="edit-post">
           <button
-            id=""
-            class="btn btn-danger delete-post"
+            class="btn btn-danger delete-post me-2"
             type="submit"
-            data-id="{{this.id}}"
-          >Delete</button>
+            data-id="{{this.id}}">Delete</button>
           
           <button
-            id=""
             class="form-submit btn btn-success"
             type="button"
             data-id="{{this.id}}"
             data-bs-toggle="modal"
-            data-bs-target="#updateModal-{{this.id}}"
-          >Update</button>
-
+            data-bs-target="#updateModal-{{this.id}}">Update</button>
         </form>
       </div>
     </div>
@@ -43,53 +37,53 @@
 
 {{/each}}
 {{#each comments}}
-  <div class="card card-color flex-item align-self-end mb-2 col-10">
+  <div class="card card-color flex-item align-self-end mb-2 col-10 mx-auto">
     <div class="card-body">
       <p class="card-text fs-6 text-dark">{{this.comment}}</p>
       <p class="text-end">{{format_date this.date_created}}
-        By:
-        {{this.user.username}}</p>
+        By:{{this.user.name}}</p>
     </div>
   </div>
+
 {{/each}}
 {{! COMMENT MODALS }}
 {{#each posts}}
+
   <div
-    class="modal fade"
+    class="modal fade bg-dark mt-5 rounded-3"
     id="commentModal-{{this.id}}"
     tabindex="-1"
     aria-labelledby="commentModal"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
+    aria-hidden="true">
+    <div class="modal-dialog mt-5 pt-5">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="comment-modal">New message</h5>
+          <h5 class="modal-title" id="comment-modal">Enter a comment</h5>
           <button
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+            aria-label="Close">
+          </button>
         </div>
+
         <div class="modal-body">
           <form class="commentHandler" data-id="{{this.id}}">
             <div class="mb-3">
               <label class="col-form-label">Comment:</label>
-              <textarea class="form-control comment-text"></textarea>
+              <textarea class="form-control comment-text" placeholder="Enter comment here..."></textarea>
             </div>
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
+                class="btn btn-secondary me-2"
+                data-bs-dismiss="modal">
                 Close
               </button>
               <button
                 type="button"
                 data-id="{{this.id}}"
-                class="btn btn-primary"
+                class="btn btn-primary me-2"
               >Add Comment</button>
             </div>
           </form>
@@ -97,17 +91,18 @@
       </div>
     </div>
   </div>
+
 {{/each}}
 {{! update MODAL }}
 {{#each posts}}
+
   <div
-    class="modal fade"
+    class="modal fade mt-5 bg-dark"
     id="updateModal-{{this.id}}"
     tabindex="-1"
     aria-labelledby="update-modal"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
+    aria-hidden="true">
+    <div class="modal-dialog mt-5 pt-5">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="update-modal">Update Post</h5>
@@ -115,8 +110,8 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+            aria-label="Close">
+          </button>
         </div>
         <div class="modal-body">
           <form class="form-handler" id="" data-id="{{this.id}}">
@@ -125,8 +120,7 @@
               <input
                 type="text"
                 class="form-control update-title"
-                placeholder="{{this.title}}"
-              />
+                placeholder="{{this.title}}"/>
             </div>
             <div class="mb-3">
               <label class="col-form-label">Post:</label>
@@ -137,17 +131,13 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
+                class="btn btn-secondary me-3"
+                data-bs-dismiss="modal">Close</button>
               <button
                 type="button"
                 id="update-post"
                 data-id="{{this.id}}"
-                class="btn btn-primary"
-              >Update</button>
+                class="btn btn-primary">Update</button>
             </div>
           </form>
         </div>
