@@ -17,6 +17,8 @@
              `----'      `---`    '---'               `----'                               `---`      
  ```   
  
+## Andy's Tech Blog v1.0.0
+ 
 ### Description
 This is a simple blog site. It is configured using the Express.js API and Sequelize to interact with a MySQL database.
 
@@ -63,8 +65,26 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 ```
+## Technologies
+JavaScript, MateralizeCSS, Handlebars, Node.js  
 
-### To install npm and dependenices:
+### Dependencies 
+Sequelize, Connect-session-sequelize, MySql, DotEnv, Bcrypt, Express, Express-handlebars, Express-session, Passport, Passport-local, Nodemon
+
+### To install npm and dependencies:
 ```
 npm i
 ```
+
+### Run Script with nodemon:
+```
+npm run devStart
+```
+
+### Run Script with just node:
+```
+npm start
+```
+
+### Future / Scalability 
+I hope to refine the UI, add an archives section, and correct the comments to be attached to each post instead of a single group of comments.
